@@ -6,15 +6,17 @@ import "semantic-ui-css/semantic.min.css";
 import App from "./components/App";
 
 // Styles
-
 import "./index.css";
 
 // Utils
+import Firebase, { FirebaseContext } from "./components/Firebase";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <FirebaseContext.Provider value={new Firebase()}>
+      <App />
+    </FirebaseContext.Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
